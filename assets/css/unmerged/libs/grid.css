@@ -1,0 +1,94 @@
+/*  all material copyright 2014
+
+	@author creativegroup
+	@country germany
+	@mail info@creativegroup.de
+
+	thank you for examining our code
+	feel free to ask us about webdesign, advertisement and editorial design
+---------------------------------------------------------------------------------*/
+
+/* ==========================================================================
+   Column setup
+   ========================================================================== */
+
+.col {
+    float: left;
+}
+
+/* column width */
+.col25 {
+    width: 21.5%;
+}
+
+.col30 {
+    width: 27%;
+}
+
+.col33 {
+    width: 30%;
+}
+
+.col40 {
+    width: 37%;
+}
+
+.col50 {
+    width: 47%;
+}
+
+.col60 {
+    width: 57%;
+}
+
+.col67 {
+    width: 64%;
+}
+
+.col70 {
+    width: 67%;
+}
+
+.col75 {
+    width: 72%;
+}
+
+/* column gutter */
+.col {
+    margin-left: 6%;
+}
+
+.col:first-child,
+.colFirst {
+    margin-left: 0;
+}
+
+
+
+/* ==========================================================================
+   Responsive columns
+   ========================================================================== */
+
+@media screen and (max-width: 650px) {
+    .col {
+        float: none;
+    }
+
+    /* column width */
+    .col25,
+    .col30,
+    .col33,
+    .col40,
+    .col50,
+    .col60,
+    .col67,
+    .col70,
+    .col75 {
+        width: 100%;
+    }
+
+    /* column gutter */
+    .col {
+        margin-left: 0;
+    }
+}

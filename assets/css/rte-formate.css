@@ -1,0 +1,85 @@
+.blue {
+    color: #44c0e9;
+}
+
+.grey {
+    color: #999;
+}
+
+.highlight {
+    font-size: 36px;
+    margin-bottom: 0;
+    color: #44c0e9;
+}
+
+.highlight2 {
+    font-size: 36px;
+    margin-bottom: 0;
+    color: #999;
+}
+
+.date {
+    color: #44c0e9;
+}
+
+.tooltip {
+    opacity: .7;
+    background-color: #44c0e9;
+}
+
+.tooltipTrigger {
+    color: #44c0e9;
+    cursor: pointer;
+}
+
+.priceTag {
+    background-color: #44c0e9;
+    font-size: 18px;
+    color: #fff;
+}
+
+.hide {
+    color: #999999;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+table {
+    border-width: 1px;
+    border-spacing: 1px;
+    border-style: outset;
+    border-color: gray;
+    border-collapse: separate;
+    background-color: white;
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 1px;
+    border-style: inset;
+    border-color: gray;
+    background-color: white;
+    padding: 3px 30px 3px 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+table td {
+    border-width: 1px;
+    padding: 1px;
+    border-style: inset;
+    border-color: gray;
+    background-color: white;
+    padding: 3px 10px;
+    font-size: 14px;
+    text-align: left;
+}
