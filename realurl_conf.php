@@ -9,7 +9,7 @@ $TYPO3_CONF_VARS['EXTCONF']['realurl'] = array(
 			'postVarSet_failureMode' => '',
 		),
 		'redirects' => array(
-            'sitemap-de.xml' => '/index.php?id=42'
+            //'sitemap.xml' => '/index.php?id=42'
 		),
 		'preVars' => array(
 			array(
@@ -19,23 +19,15 @@ $TYPO3_CONF_VARS['EXTCONF']['realurl'] = array(
 					),
 					'noMatch' => 'bypass',
 				),
-				array(
-					'GETvar' => 'L',
-					'valueMap' => array(
-						 'de' => '1',
-					),
-					'valueDefault' => 'de',
-					'noMatch' => 'bypass',
-				),
 			),
 			'pagePath' => array(
 				'type' => 'user',
 				'userFunc' => 'EXT:realurl/class.tx_realurl_advanced.php:&tx_realurl_advanced->main',
-				'segTitleFieldList'=>'tx_realurl_pathsegment,title,nav_title,subtitle',
+				'segTitleFieldList'=>'tx_realurl_pathsegment,nav_title,title,subtitle',
 				'spaceCharacter' => '-',
 				'languageGetVar' => 'L',
 				'expireDays' => 7,
-				'rootpage_id' => 2,
+				'rootpage_id' => 0,
 				'firstHitPathCache' => 1,
 			),
 			'postVarSets' => array(
