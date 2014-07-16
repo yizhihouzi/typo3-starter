@@ -28,9 +28,11 @@
     function runCssMinify($path, $minify=true) {
         // Inhalte der CSS Dateien laden
         $output  = file_get_contents($path . 'unmerged/libs/normalize.css');
-        $output  = file_get_contents($path . 'unmerged/libs/grid.css');
+        $output .= file_get_contents($path . 'unmerged/libs/font-awesome.css');
         $output .= file_get_contents($path . 'unmerged/libs/jquery.fancybox.css');
+        $output .= file_get_contents($path . 'unmerged/libs/bootstrap.min.css');
         $output .= file_get_contents($path . 'unmerged/style.css');
+
 
         // Minify Klasse einbinden und auf CSS Inhalt anwenden
         if($minify==true) {

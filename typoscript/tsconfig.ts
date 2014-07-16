@@ -195,7 +195,7 @@ RTE {
         useCSS = 0
 
         # Zuweisung der CSS-Datei
-        contentCSS = fileadmin/template/css/rte-formate.css
+        contentCSS = fileadmin/template/assets/css/rte-formate.css
 
         # Markup options
         enableWordClean = 1

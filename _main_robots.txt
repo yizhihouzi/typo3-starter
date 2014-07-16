@@ -1,5 +1,5 @@
 # Sitemap
-Sitemap: http://www.myexamplesupersite.de/sitemap.xml
+# Sitemap: http://www.myexamplesupersite.de/sitemap.xml
 
 # Google AdSense
 User-agent: Mediapartners-Google*
@@ -12,55 +12,8 @@ Disallow: /
 # Global
 User-agent: *
 
-# Static specific config
-Disallow: /assets/
-Disallow: /inc/
-Disallow: /class/
-Disallow: /functions/
-
-# WordPress specific config
-Disallow: /cgi-bin/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/plugins/
-Disallow: /wp-content/cache/
-Disallow: /wp-content/themes/
-Disallow: /trackback/
-Disallow: /feed/
-Disallow: /comments/
-Disallow: /category/*/*
-Disallow: */trackback/
-Disallow: */feed/
-Disallow: */comments/
-Disallow: /*?
-Allow: /wp-content/uploads/
-
 # Typo3 specific config
-Disallow: /fileadmin/templates/
 Disallow: /typo3/
 Disallow: /t3lib/
 Disallow: /typo3conf/
 Disallow: /typo3temp/
-
-# Magento specific config
-Disallow: /index.php/
-Disallow: /*.js$
-Disallow: /*.css$
-Disallow: /*.php$
-Disallow: /admin/
-Disallow: /app/
-Disallow: /catalog/
-Disallow: /catalogsearch/
-Disallow: /checkout/
-Disallow: /customer/
-Disallow: /downloader/
-Disallow: /js/
-Disallow: /lib/
-Disallow: /media/
-Disallow: /newsletter/
-Disallow: /pkginfo/
-Disallow: /report/
-Disallow: /review/
-Disallow: /skin/
-Disallow: /var/
-Disallow: /wishlist/
