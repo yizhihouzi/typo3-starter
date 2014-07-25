@@ -12,7 +12,7 @@
         echo '<meta http-equiv="refresh" content="1">';
         runCssMinify('./../', $enable_css_minify);
 
-    } else if(function_exists('add_theme_support') && defined('CGBASE_DEBUG') && CGBASE_DEBUG == true) {
+    } else if(function_exists('add_theme_support') && defined('CGBASE_COMPILE_ASSETS') && CGBASE_COMPILE_ASSETS == true) {
 
         // Entwicklermodus für WordPress
         runCssMinify(CGBASE_CSS, $enable_css_minify);
