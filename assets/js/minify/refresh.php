@@ -2,7 +2,7 @@
 
 
     // Minify ausführen/nicht ausführen
-    $enable_css_minify = true;
+    $minify = true;
 
 
     // Templatepath setzen und Entwicklermodus ein- bzw. ausschalten
@@ -10,17 +10,17 @@
 
         // Direktaufruf der Datei
         echo '<meta http-equiv="refresh" content="1">';
-        runJsMinify('./../', $enable_css_minify);
+        runJsMinify('./../', $minify);
 
     } else if(function_exists('add_theme_support') && defined('CGBASE_COMPILE_ASSETS') && CGBASE_COMPILE_ASSETS == true) {
 
         // Entwicklermodus für WordPress
-        runJsMinify(CGBASE_JS, $enable_css_minify);
+        runJsMinify(realpath(dirname(__FILE__)) . '/../', $minify);
 
     } else if(isset($page) && defined('DEBUG') && DEBUG == true) {
 
         // Entwicklermodus für CreativeGroup Static PHP Template
-        runJsMinify(APPLICATION_DIR . JS_PATH, $enable_css_minify);
+        runJsMinify(realpath(dirname(__FILE__)) . '/../', $minify);
 
     }
 
