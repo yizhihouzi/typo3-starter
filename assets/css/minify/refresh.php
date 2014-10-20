@@ -36,8 +36,11 @@
 
         // Minify Klasse einbinden und auf CSS Inhalt anwenden
         if($minify==true) {
-            require 'cssmin-v3.0.1-minified.php';
-            $result['style.min.css'] = CssMin::minify($output);
+            require 'cssmin.php';
+            $compressor = new CSSmin();
+            $compressor->set_memory_limit('256M');
+            $compressor->set_max_execution_time(120);
+            $result['style.min.css'] = $compressor->run($output);
         } else {
             $result['style.min.css'] = $output;
         }
