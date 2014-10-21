@@ -34,8 +34,8 @@
 
         // Minify Klasse einbinden und auf JS Inhalt anwenden
         if($minify==true) {
-            require 'JSMin.php';
-            $result['script.min.js'] = JSMin::minify($output);
+            require 'JShrink.php';
+            $result['script.min.js'] = \JShrink\Minifier::minify($output, array('flaggedComments' => false));
         } else {
             $result['script.min.js'] = $output;
         }
