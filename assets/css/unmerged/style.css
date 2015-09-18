@@ -297,20 +297,38 @@ nav li {
     padding: 0;
 }
 
+.responsive_toggle {
+    display: none;
+}
+
 
 
 /* ==========================================================================
    Media queries
    ========================================================================== */
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 980px) {
 
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
+    .responsive_toggle {
+        display: block;
+        font-size: 2rem;
+        color: #999;
+        float: right;
+        cursor: pointer;
+    }
 
+    .responsive_toggle:hover {
+        color: #333;
+    }
+
+    #nav_main > ul {
+        display: none;
+    }
 }
 
-@media only screen and (min-width: 1140px) {
+@media only screen and (max-width: 650px) {
 
 }
 

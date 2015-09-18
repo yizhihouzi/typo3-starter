@@ -40,11 +40,10 @@ $(function(){
     /**
      * Responsive nav
      */
-
-    $('#responsiveNavToggle').click(function(){
-        $('#navMain ul').slideToggle();
+    $('.responsive_toggle').click(function(){
+        $('#nav_main>ul').slideToggle();
         return false;
-    })
+    });
 
     /**
     * Responsive handling
