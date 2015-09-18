@@ -32,20 +32,10 @@ TCEFORM.pages {
     no_search.disabled = 1
     editlock.disabled = 1
     php_tree_stop.disabled = 1
-    media.disabled = 1
+    #media.disabled = 1
     layout.disabled = 1
+    categories.disabled = 1
 }
-
-# Entfernt nicht benötigte tt_news Eingabefelder für Backenduser
-TCEFORM.tt_news {
-    related.disabled = 1
-    fe_group.disabled = 1
-    keywords.disabled = 1
-    author.disabled = 1
-    author_email.disabled = 1
-    editlock.disabled = 1
-}
-
 
 # Benennt Seiteneigenschaften für Backenduser um
 TCEFORM.pages {
@@ -76,8 +66,80 @@ TCEFORM.tt_content {
     rte_enabled.disabled = 1
     sys_language_uid.disabled = 1
     linkToTop.disabled = 1
+    header_position.disabled = 1
+    date.disabled = 1
+    categories.disabled = 1
+    layout.disabled = 1
+    #endtime.disabled = 1
 }
 
+# Entfernt nicht benötigte tt_news Eingabefelder für Backenduser
+TCEFORM.tt_news {
+    related.disabled = 1
+    fe_group.disabled = 1
+    keywords.disabled = 1
+    author.disabled = 1
+    author_email.disabled = 1
+    editlock.disabled = 1
+    archivedate.disabled = 1
+    sys_language_uid.disabled = 1
+    type.disabled = 1
+    category.disabled = 1
+    starttime.disabled = 1
+    endtime.disabled = 1
+}
+
+# Entfernt nicht benötigte tt_powermail Eingabefelder für Backenduser -> im Plugin
+TCEFORM {
+    tt_content {
+        pi_flexform {
+            powermail_pi1 {
+                main {
+                    settings\.flexform\.main\.moresteps.disabled = 1
+                    settings\.flexform\.main\.optin.disabled = 1
+                    #settings\.flexform\.main\.confirmation.disabled = 1
+                    #settings\.flexform\.main\.pid.disabled = 1
+                }
+
+                receiver {
+                    settings\.flexform\.receiver\.fe_group.disabled = 1
+                }
+
+                thx {
+                    #settings\.flexform\.thx\.redirect.disabled = 1
+                }
+            }
+        }
+    }
+}
+
+# Entfernt nicht benötigte tt_powermail Eingabefelder für Backenduser -> in der Formularkonfiguration
+TCEFORM {
+    tx_powermail_domain_model_forms {
+        css.disabled = 1
+        starttime.disabled = 1
+        endtime.disabled = 1
+        sys_language_uid.disabled = 1
+    }
+    tx_powermail_domain_model_pages {
+        css.disabled = 1
+        starttime.disabled = 1
+        endtime.disabled = 1
+        sys_language_uid.disabled = 1
+    }
+    tx_powermail_domain_model_fields {
+        css.disabled = 1
+        create_from_typoscript.disabled = 1
+        feuser_value.disabled = 1
+        multiselect.disabled = 1
+        auto_marker.disabled = 1
+        own_marker_select.disabled = 1
+        starttime.disabled = 1
+        endtime.disabled = 1
+        sys_language_uid.disabled = 1
+        #prefill_value.disabled = 1
+    }
+}
 
 # Konfiguration des tt_content Objekts
 TCEFORM.tt_content {
@@ -93,16 +155,14 @@ TCEFORM.tt_content {
 
         # Headlines umbenennen
         altLabels {
-            1 = H1 Headline
-            2 = H2 Headline
-            3 = H3 Headline
-            4 = H4 Headline
-            5 = H5 Headline
+            1 = H2 Headline
+            2 = H3 Headline
+            3 = H4 Headline
             100 = Headline nicht ausgeben!
         }
 
         # Headlines aus der Auswahl entfernen
-        # removeItems = 1
+        removeItems = 4,5
     }
 
 

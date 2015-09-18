@@ -1,14 +1,14 @@
 <div id="wrapper" class="clearfix">
-    <header id="headerWrapper" class="clearfix">
-        <h1 id="logo"><a href="/" title="<f:format.raw>{sitename}</f:format.raw>"><f:format.raw>{sitename}</f:format.raw></a></h1>
-        <nav id="navMain">
-            <ul class="clearfix">
-                <f:cObject typoscriptObjectPath="lib.mainNavigation">
-                </f:cObject>
-            </ul>
-        </nav>
+    <header id="header_wrapper" class="container-fluid">
+        <div class="row">
+            <a href="/" title="<f:format.raw>{sitename}</f:format.raw>"><f:format.raw>{sitename}</f:format.raw></a>
+            <nav id="nav_main">
+                <ul class="clearfix">
+                    <f:cObject typoscriptObjectPath="lib.mainNavigation"></f:cObject>
+                </ul>
+            </nav>    
+        </div>
     </header>
-    <f:format.raw>{headerImage}</f:format.raw>
     <f:render section="body" />
 </div>
 <f:render partial="footer" arguments="{_all}" />

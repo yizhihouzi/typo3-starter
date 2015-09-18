@@ -1,11 +1,15 @@
 <f:layout name="default" />
 <f:section name="body">
-    <div id="contentWrapper" class="clearfix" role="main">
-        <section id="mainContent" class="clearfix">
-            <f:format.raw>{mainContent}</f:format.raw>
-        </section>
-        <aside id="sidebar" class="col col30">
-            <f:format.raw>{sidebarContent}</f:format.raw>
-        </aside>
+    <div id="content_wrapper" class="centered" role="main">
+        <div class="container-fluid ">
+            <div class="row">
+                <aside id="sidebar" class="col-md-4">
+                    <f:format.raw>{sidebar}</f:format.raw>
+                </aside>
+                <section id="main_content" class="col-md-8">
+                    <f:format.raw>{main_content}</f:format.raw>
+                </section>
+            </div>
+        </div>
     </div>
 </f:section>
