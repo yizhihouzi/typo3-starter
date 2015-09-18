@@ -31,7 +31,7 @@ plugin.tt_news {
 		latestHeader = Aktuelles
 		textFiles = Anhang:
 		more = Weiterlesen
-		goToArchive = zum Archiv
+		goToArchive = zum Newsarchiv
 		backToList = Zurück zu Aktuelles
 		textRelated = In Verbindung stehende Informationen:
 		textLinks = Links:
@@ -45,34 +45,16 @@ plugin.tt_news {
 
 }
 
-
 plugin.tt_news.displayLatest {
 
 	# Crop Subheader
-	subheader_stdWrap.crop = 70 | ... | 1
+	subheader_stdWrap.crop = 100 | ... | 1
 
-
-	# Crop Image
-	image >
-	image.stdWrap.cObject = IMAGE
-	image.stdWrap.cObject.file = GIFBUILDER
-	image.stdWrap.cObject.file {
-		XY = 150,150
-		10 = IMAGE
-		10 {
-			offset = 0,0
-			file {
-				import=uploads/pics/
-				import.data = field:image
-				import.listNum = 0
-				import.override.field = image
-				maxW = 150
-				maxH = 150
-				width = 150c
-				height = 150c-0
-			}
-		}
-	}
+    # Crop Image
+    image.file.maxW = 70
+    image.file.maxH = 70
+    image.file.width = 70c
+    image.file.height = 70c
 }
 
 plugin.tt_news.displayList {
@@ -80,67 +62,35 @@ plugin.tt_news.displayList {
 	# Crop Subheader
 	subheader_stdWrap.crop = 600 | ... | 1
 
-    imageWrapIfAny = <figure class="newsImages">|</figure>
+    imageWrapIfAny = <figure class="news_image">|</figure>
     caption_stdWrap.dataWrap = <figcaption>|</figcaption>
 
-	# Crop Image
-	image >
-	image.stdWrap.cObject = IMAGE
-	image.stdWrap.cObject.file = GIFBUILDER
-	image.stdWrap.cObject.file {
-		XY = 600,250
-		10 = IMAGE
-		10 {
-			offset = 0,0
-			file {
-				import=uploads/pics/
-				import.data = field:image
-				import.listNum = 0
-				import.override.field = image
-				maxW = 600
-				maxH = 250
-				width = 600c
-				height = 250c-0
-			}
-		}
-	}
+    # Crop Image
+    image.file.maxW = 70
+    image.file.maxH = 70
+    image.file.width = 70c
+    image.file.height = 70c
 }
 
 plugin.tt_news.displaySingle {
     subheader_stdWrap.wrap = <p><strong>|</strong></p>
 
-    imageWrapIfAny = <figure class="newsImages">|</figure>
+    imageWrapIfAny = <figure class="news_image">|</figure>
     caption_stdWrap.dataWrap = <figcaption>|</figcaption>
 
     image.imageLinkWrap {
         JSwindow = 0
         directImageLink = 1
         linkParams.ATagParams {
-            dataWrap = class="lightbox" rel="lightbox{field:uid}"
+            dataWrap = class="fancybox" rel="lightbox{field:uid}"
         }
     }
 
     # Crop Image
-	image >
-	image.stdWrap.cObject = IMAGE
-	image.stdWrap.cObject.file = GIFBUILDER
-	image.stdWrap.cObject.file {
-		XY = 600,250
-		10 = IMAGE
-		10 {
-			offset = 0,0
-			file {
-				import=uploads/pics/
-				import.data = field:image
-				import.listNum = 0
-				import.override.field = image
-				maxW = 600
-				maxH = 250
-				width = 600c
-				height = 250c-0
-			}
-		}
-	}
+    image.file.maxW = 600
+    image.file.maxH = 250
+    image.file.width = 600c
+    image.file.height = 250c
 
     nextLink_stdWrap.wrap = |
     prevLinkLabel_stdWrap.wrap = |
