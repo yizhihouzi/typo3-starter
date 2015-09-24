@@ -27,8 +27,9 @@
 
     function runJsMinify($path, $minify=true) {
         // Inhalte der Skript Dateien laden
-        $output  = file_get_contents($path . 'unmerged/libs/jquery-1.11.0.js');
+        $output  = file_get_contents($path . 'unmerged/libs/jquery-1.11.3.min.js');
         $output .= file_get_contents($path . 'unmerged/libs/jquery-migrate-1.2.1.min.js');
+        $output .= file_get_contents($path . 'unmerged/libs/jquery.fancybox.js');
         $output .= file_get_contents($path . 'unmerged/main.js');
 
 

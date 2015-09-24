@@ -67,7 +67,9 @@ config {
     index_externals = 1
 
     # Move default CSS and JS to external file
-    removeDefaultJS = external
+    #removeDefaultJS = 0 # dies ist der Ausgangszustand, also mit JS.
+    #removeDefaultJS = 1 # damit wird das JS entfernt.
+    removeDefaultJS = external # hier wird auf ein externes JS umgeschaltet
     inlineStyle2TempFile = 1
 
     # Protect mail addresses from spamming

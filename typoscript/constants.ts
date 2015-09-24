@@ -1,12 +1,12 @@
 /*
-    Setzen einiger Basis Konstanten für das Template
+    Default constants for template
 */
 config {
     adminPanel = 0
     debug = 0
     absRefPrefix = /
 
-    # Tracking Konfiguration
+    # Tracking
     googleAnalytics = XXXXX
 
     # Default Page IDs
@@ -29,7 +29,7 @@ config {
 
 
 /*
-    Allgemeine Dateipfade zu den Templatefiles
+    Setting quick path to template files
 */
 filepath {
     templates = fileadmin/template/
@@ -43,26 +43,40 @@ filepath {
 
 
 /*
-    News Konstanten setzen
+    News constants
 */
-news {
-    # ID der Aktuelles Seite
-    backID = 
-    archiveID = 
-
-    # ID der Einzelseite
-    singleID = 
-
-    # ID der tt_news Datensätze
-    dataID = 
-
-    # RSS Title/beschreibung
-    rssTitle = 
-    rssDescription = Bleiben Sie auf dem Laufenden
-}
+# news {
+#     # ID back/archive
+#     backID = 
+#     archiveID = 
+# 
+#     # ID single view
+#     singleID = 
+# 
+#     # ID tt_news Sys-folder
+#     dataID = 
+# 
+#     # RSS Title/Description
+#     rssTitle = 
+#     rssDescription = Bleiben Sie auf dem Laufenden
+# }
 
 
 /*
-    Einbinden der externen Constants Dateien
+    Native lightbox
 */
-<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/template/typoscript/extensions/tt_news-constants.ts">
+styles.content.imgtext.linkWrap {
+	lightboxEnabled = 1
+	lightboxRelAttribute = gallery{field:uid}
+	lightboxCssClass = fancybox
+}
+
+# prevents up scaling small images in lightbox
+tt_content.image.20.1.imageLinkWrap.height =
+tt_content.image.20.1.imageLinkWrap.width =
+
+
+/*
+    Include external constants files
+*/
+# <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/template/typoscript/extensions/tt_news-constants.ts">

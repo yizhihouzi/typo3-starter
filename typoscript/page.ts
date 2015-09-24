@@ -3,20 +3,20 @@
 */
 config {
     
-    # Abschalten des Title Tags
+    # Disable title Tags
     noPageTitle = 2
 
-    # Indexed Search Engine aktivieren/deaktivieren
+    # Enable Indexed Search Engine
     index_enable = 0
     index_externals = 0
 
-    # Konfiguration von RealURL
+    # RealURL config
     simulateStaticDocuments = 0
     baseURL = {$config.domain}
     tx_realurl_enable = 1
     prefixLocalAnchors = all
 
-    # Deutsch als Standardsprache
+    # German as defualt language
     uniqueLinkVars = 1
     linkVars = L
     sys_language_uid = 0
@@ -27,13 +27,13 @@ config {
     language = de
     htmlTag_langKey = de
 
-    # Ziele für Links setzen
+    # Link targets
     extTarget = _blank
 }
 
 
 /*
-    Einbinden der externen TypoScript Dateien
+    Include external TS files
 */
 <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/template/typoscript/cleancode.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/template/typoscript/extensions.ts">
@@ -41,12 +41,12 @@ config {
 
 
 /*
-    Page Objekt definieren und Templatebezogene Einstellungen vornehmen
+    Setup PAGE object and template configuration
 */
 page = PAGE
 page {
     
-    # Templates je nach Backend-Layout zuweisen
+    # Templates depending on BE layout
     10 = FLUIDTEMPLATE
     10 {
         partialRootPath = {$filepath.templates}fluid/partials/
@@ -65,26 +65,26 @@ page {
         }
     }
 
-    # CSS im "head"-Tag einfügen
+    # CSS into <head>
     includeCSS {
         file_main = {$filepath.css}style.min.css
         file_main.media = all
     }
 
-    # JavaScript im "head"-Bereich einfügen
-    #includeJS {
-    #    10 = {$filepath.scripts}modernizr-2.6.2.js
-    #}
+    # JavaScript into <head>
+    # includeJS {
+    #     10 = {$filepath.scripts}modernizr-2.6.2.js
+    # }
     
-    # JavaScript am Ende vom "body"-Tag einfügen
+    # JavaScript after closing </body>
     includeJSFooter {
         10 = {$filepath.scripts}script.min.js
     }
 
-    # Favicon einbinden
+    # Favicon insetion
     #shortcutIcon = favicon.png
 
-    # Meta Elemente setzen
+    # Meta elements
     meta {
         description = {$config.description}
         description.override.field = description
@@ -100,7 +100,7 @@ page {
         format-detection = telephone=no
     }
 
-    # HTML in den "head"-Bereich einfügen
+    # Manipulate header
     headerData {
         10 = TEXT
         10 {
@@ -115,41 +115,68 @@ page {
 /*
     SEO friendly title and description for news
 */
-temp.newsTitle = RECORDS
-temp.newsTitle {
-    source = {GP:tx_ttnews|tt_news}
-    source.insertData = 1
-    tables = tt_news
-    conf.tt_news >
-    conf.tt_news = TEXT
-    conf.tt_news.field = title
-    wrap = <title>|</title>
-    insertData = 1
-}
+# title for tt_news single
+# temp.newsTitle = RECORDS
+# temp.newsTitle {
+#     source = {GP:tx_ttnews|tt_news}
+#     source.insertData = 1
+#     tables = tt_news
+#     conf.tt_news >
+#     conf.tt_news = TEXT
+#     conf.tt_news.field = title
+#     wrap = <title>|</title>
+#     insertData = 1
+# }
+# 
+# [globalVar = TSFE:id = {$news.singleID}]
+#     page.headerData {
+#         10 >
+#         10 = COA
+#         10 < temp.newsTitle
+#     }
+# 
+#     page.meta {
+#         description >
+#         description = TEXT
+#         description.data = register:newsSubheader
+#         description.ifEmpty = {$config.description}
+# 
+#         keywords >
+#         keywords = TEXT
+#         keywords.data = register:newsKeywords
+#         keywords.ifEmpty = {$config.keywords}
+#     }
+# [global]
 
-[globalVar = TSFE:id = {$news.singleID}]
-    page.headerData {
-        10 >
-        10 = COA
-        10 < temp.newsTitle
-    }
-
-    page.meta {
-        description >
-        description = TEXT
-        description.data = register:newsSubheader
-        description.ifEmpty = {$config.description}
-
-        keywords >
-        keywords = TEXT
-        keywords.data = register:newsKeywords
-        keywords.ifEmpty = {$config.keywords}
-    }
-[global]
+# title for tx_news single
+# temp.newsTitle = RECORDS
+# temp.newsTitle {
+#     stdWrap.if.isTrue.data = GP:tx_news_pi1|news
+#     dontCheckPid = 1
+#     tables = tx_news_domain_model_news
+#     source.data = GP:tx_news_pi1|news
+#     source.intval = 1
+#     conf.tx_news_domain_model_news = TEXT
+#     conf.tx_news_domain_model_news {
+#         field = title
+#         htmlSpecialChars = 1
+#     }
+#     wrap = <title>|</title>
+#     insertData = 1
+# }
+# 
+# Description comes by default
+# [globalVar = TSFE:id = {$plugin.tx_news.custom.detailPid}]
+#     page.headerData {
+#         10 >
+#         10 = COA
+#         10 < temp.newsTitle
+#     }
+# [global]
 
 
 /*
-    Canonical MetaTag Container
+    Canonical element 
 */
 lib.canonical = TEXT
 lib.canonical {
@@ -169,10 +196,10 @@ page.headerData.100 < lib.canonical
 
 
 /*
-    Layout-Optionen und sonstige Anpassungen
+    Layout options ans misc markup/layout configurations
 */
 
-# Content Element Layout, Rahmen-Styles
+# Content element layout and frame styles
 tt_content {
     stdWrap.innerWrap.cObject = CASE
     stdWrap.innerWrap.cObject {
@@ -182,7 +209,16 @@ tt_content {
     }
 }
 
-# Body Tag erweitern
+# Lightbox without plugin -> check constants.ts for native lightbox support
+# tt_content.image.20.1.imageLinkWrap {
+# 	JSwindow = 0
+# 	directImageLink = 1
+# 	linkParams.ATagParams { 
+# 		dataWrap = class = "fancybox" rel="galery_{field:uid}"
+# 	}
+# }
+
+# Extends body tag with page ID
 lib.bodyTag = COA
 lib.bodyTag {
     
@@ -195,18 +231,18 @@ lib.bodyTag {
     999.value = ">
 }
 
-# Body Class je nach Page Frontend Layout setzen
-#[globalVar=TSFE:page|layout=0]
-#    lib.bodyTag.20 = TEXT
-#    lib.bodyTag.20.value = default
-#    lib.bodyTag.20.noTrimWrap = | | |
-#[global]
+# Extens body tag with class depending on choosen layout
+# [globalVar=TSFE:page|layout=0]
+#     lib.bodyTag.20 = TEXT
+#     lib.bodyTag.20.value = default
+#     lib.bodyTag.20.noTrimWrap = | | |
+# [global]
 
-# Body Tag ersetzen
+# Replace body tag
 page.bodyTag >
 page.bodyTagCObject < lib.bodyTag
 
-# Anpassungen für die Startseite
+# Special changes for home page
 [globalVar= TSFE:id={$config.homeID}]
     page = PAGE
     page {
@@ -215,7 +251,7 @@ page.bodyTagCObject < lib.bodyTag
     }
 [global]
 
-# Alternative Headline Layouts
+# Overwrite headline layouts
 lib.stdheader >
 lib.stdheader = CASE
 lib.stdheader {
@@ -292,12 +328,12 @@ lib.stdheader {
 
 
 /*
-    Constanten anzeigbar machen
+    Prepare constants for template output
 */
 lib.varStorage = COA
 lib.varStorage {
     
-    # Sitename übergeben
+    # Sitename 
     sitename = TEXT
     sitename.value = {$config.title}
 
@@ -308,7 +344,7 @@ lib.varStorage {
 
 
 /*
-    Inhalt einfügen inkl. "nicht-verfügbar-Fallback"
+    Custom content object incl. not available handling
 */
 lib.contentTeaser = COA
 lib.contentTeaser {
@@ -331,7 +367,7 @@ lib.contentTeaser {
 
 
 /*
-    Benutzerdefinierter Inhalt + Bilder aus media Feld mit korrekten Attributen
+    Custom content and retrieving images from media field with seo firendly attributes
 */
 lib.custom_content = FILES
 lib.custom_content {
@@ -369,15 +405,15 @@ lib.custom_content {
 
 
 /*
-    Sidebar Spalte mit Standard-Submenu und Title + Abhängikeit vom BE-Layout
+    Sidebar column with default submenu (2nd level) and parent title; insertion depending on BE Layout
 */
 [globalVar = TSFE:page|backend_layout = 1]
-    # leer lassen, weil es in TS keine entsprechenden Operatoren gibt
+    # let it empty because there is no matching not operator in TypoScript
 [else]
     lib.contentBackendColPos.3 = COA
     lib.contentBackendColPos.3 {
         
-        # wenn unterseiten vorhanden sind
+        # If has subpages
         10 = TEXT
         10.if.isTrue.numRows {
             table = pages
@@ -385,7 +421,7 @@ lib.custom_content {
         }
         10.dataWrap = <p class="sidebar_headline"><strong>{leveltitle:1}</strong></p>
 
-        # wenn keine untersieten vorhanden sind
+        # If no subpages
         15 = TEXT
         15.if.isFalse.numRows {
             table = pages
@@ -428,7 +464,7 @@ lib.custom_content {
 
 
 /*
-    Spalten definieren
+    Define content columns
 */
 lib.contentBackendColPos = COA
 lib.contentBackendColPos {
@@ -450,18 +486,18 @@ lib.contentBackendColPos {
 
 
 /*
-    Inhalte zuweisen und Marker für Templatedateien befüllen
+    Assign contents to markers/variables in order to fill the templates placeholders
 */
 page.10 {
     variables {
 
-        # Colmanagement
+        # Column management
         main_content < lib.contentBackendColPos.1
         news < lib.contentBackendColPos.2
         sidebar < lib.contentBackendColPos.3
         custom_content < lib.custom_content
 
-        # Basic Constants in Templates verwenden
+        # Basic constants use in templates
         sitename < lib.varStorage.sitename
         googleAnalytics < lib.varStorage.googleAnalytics
     }
